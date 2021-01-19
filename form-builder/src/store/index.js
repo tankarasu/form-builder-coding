@@ -11,6 +11,9 @@ export default new Vuex.Store({
   state: {
     // cette variable défini l'heure actuelle quand le composant est créé.
     currentTime: new Date(),
+    currentHours: 0,
+    currentMinute: 0,
+    currentSecond: 0,
   },
   /** -- Mutations--
    * Enregistrer les mutations sur le store.
@@ -21,6 +24,9 @@ export default new Vuex.Store({
     refreshTime(state) {
       setInterval(() => {
         state.currentTime = new Date();
+        state.currentHours = state.currentTime.getHours();
+        state.currentMinute = state.currentTime.getMinute();
+        state.currentSecond = state.currentTime.getSecond();
       }, 1000);
     },
     // TODO - besoin de remove Interval ?
