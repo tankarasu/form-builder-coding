@@ -17,9 +17,20 @@ export default new Vuex.Store({
    * functions de type f(state,payload) à l'aide des commits
    */
   mutations: {
-
+    // faire une fonction qui rafraîchit l'heure à intervalle régulier
+    refreshTime(state) {
+      setInterval(() => {
+        state.currentTime = new Date();
+      }, 1000);
+    },
+    // TODO - besoin de remove Interval ?
   },
-  actions: {},
+  // permet de commit les mutations
+  actions: {
+    refreshCurrentTime(context) {
+      context.commit("refreshTime");
+    },
+  },
   modules: {},
   getters: {
     // avec ce getters on récupère la date actuelle
