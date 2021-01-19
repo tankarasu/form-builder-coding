@@ -17,4 +17,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+}
+</style>

@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Form App</h1>
-    <h2>Test</h2>
   </div>
 </template>
 
