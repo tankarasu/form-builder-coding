@@ -1,14 +1,18 @@
 <template>
   <div>
-    <p>Time</p>
+    <p>{{ currentTime }}</p>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+console.log($store);
+
 export default {
   name: "TimeMachine",
-  props: {
-    currentTime: "",
+  computed: {
+    // on décompose l'objet renvoyé par mapState
+    ...mapState(["currentTime"]),
   },
 };
 </script>
