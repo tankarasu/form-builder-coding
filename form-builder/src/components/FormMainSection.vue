@@ -1,14 +1,10 @@
 <template>
   <div class="bg-info col-7">
-    <form @submit.prevent="onSubmit()">
-      <span class="custom-control custom-switch">
-        <input
-          type="checkbox"
-          class="custom-control-input"
-          id="customSwitches"
-        />
-        <label class="custom-control-label" for="customSwitches">POST</label>
-      </span>
+    <form @submit.prevent="onSubmit()" class="row">
+      <select name="select" id="test" v-model="selected">
+        <option value="GET">GET</option>
+        <option value="POST">POST</option>
+      </select>
 
       <input v-model="action" placeholder="urlAction" />
       <input v-model="id" placeholder="id" />
@@ -25,11 +21,13 @@ export default {
   name: "FormMainSection",
   data() {
     return {
-      actions: "",
+      // récupère la méthode du formulaire
+      selected: "",
     };
   },
   methods: {
     onSubmit() {
+      this.$store.commit("addMethodAction", this.selected);
       console.log(this.containerData);
     },
   },
@@ -46,14 +44,6 @@ export default {
         // renvoi au store
         // commit une mutation
         this.$store.commit("addUrlAction", value);
-      },
-    },
-    method: {
-      get() {
-        return this.containerData.method;
-      },
-      set(value) {
-        return this.$store.commit("addMethodAction", value);
       },
     },
     classe: {

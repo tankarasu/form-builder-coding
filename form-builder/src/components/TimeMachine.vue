@@ -1,8 +1,18 @@
 <template>
   <div>
     <p>
-      <span>{{ currentTime.getHours() }}</span> h
-      <span>{{ currentTime.getMinutes() }}</span> :
+      <span>{{
+        currentTime.getHours() < 10
+          ? "0" + currentTime.getHours()
+          : currentTime.getHours()
+      }}</span>
+      h
+      <span>{{
+        currentTime.getMinutes() < 10
+          ? "0" + currentTime.getMinutes()
+          : currentTime.getMinutes()
+      }}</span>
+      :
       <span>{{
         currentTime.getSeconds() < 10
           ? "0" + currentTime.getSeconds()
