@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-dark col-3">
-    <div class="testAdd bg-light" @click="addString">
+  <div class=" col-3">
+    <div class="testAdd" @click="addString">
       <button>Bouton</button>
     </div>
   </div>

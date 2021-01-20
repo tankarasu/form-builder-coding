@@ -16,7 +16,9 @@ export default new Vuex.Store({
     urlGet:
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false",
     kryptoData: {},
-    testData: [],
+    testData: [], // TODO element in Json à renommer
+    containerData: { action: "", method: "", class: "", id: "", type: "form" },
+    submitData: {},
   },
   /** -- Mutations--
    * Enregistrer les mutations sur le store.
