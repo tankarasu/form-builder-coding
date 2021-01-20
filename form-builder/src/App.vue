@@ -1,11 +1,14 @@
 <template>
   <div id="app">
     <MainMenu></MainMenu>
+    <router-view />
   </div>
 </template>
 
 <script>
 import MainMenu from "../src/containers/MainMenu.vue";
+//import Home from "../src/views/Home";
+//import PageA from "../src/components/PageA.vue";
 
 export default {
   name: "App",

@@ -9,8 +9,11 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   // l'état (state) de l'application à un instant T
   state: {
-    // cette variable défini l'heure actuelle quand le composant est créé.
+    // cette propriété défini l'heure actuelle quand le composant est créé.
     currentTime: new Date(),
+    // cette propriété sert à récupérer la liste des bitcoins à afficher
+    urlGet:
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false",
   },
   /** -- Mutations--
    * Enregistrer les mutations sur le store.

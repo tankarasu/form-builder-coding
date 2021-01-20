@@ -3,13 +3,18 @@
     <p>
       <span>{{ currentTime.getHours() }}</span> h
       <span>{{ currentTime.getMinutes() }}</span> :
-      <span>{{ currentTime.getSeconds() }}</span>
+      <span>{{
+        currentTime.getSeconds() < 10
+          ? "0" + currentTime.getSeconds()
+          : currentTime.getSeconds()
+      }}</span>
     </p>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+// TODO date-fns non utilisé
 
 export default {
   name: "TimeMachine",

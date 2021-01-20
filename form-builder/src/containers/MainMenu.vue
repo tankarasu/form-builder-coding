@@ -8,11 +8,13 @@
 <script>
 import Headers from "../components/Headers.vue";
 import TimeMachine from "../components/TimeMachine.vue";
+import PageA from "../components/PageA.vue";
 
 export default {
   components: {
     Headers,
     TimeMachine,
+    PageA,
   },
 };
 </script>
