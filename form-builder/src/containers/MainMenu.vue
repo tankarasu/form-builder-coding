@@ -8,13 +8,16 @@
 <script>
 import Headers from "../components/Headers.vue";
 import TimeMachine from "../components/TimeMachine.vue";
-import PageA from "../components/PageA.vue";
+// imports nécessaires pour l'affichage des différentes vues
+import KryptoMain from "../containers/KryptoMain.vue";
+import FormMain from "../containers/FormMain.vue";
 
 export default {
   components: {
     Headers,
     TimeMachine,
-    PageA,
+    KryptoMain,
+    FormMain,
   },
 };
 </script>

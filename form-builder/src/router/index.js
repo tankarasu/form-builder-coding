@@ -1,7 +1,9 @@
+// import nécessaire pour le fonctionnement
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import PageA from "../components/PageA.vue";
+// import module pour les rendus sur les liens
+import KryptoMain from "../containers/KryptoMain.vue";
+import FormMain from "../containers/FormMain.vue";
 
 Vue.use(VueRouter);
 
@@ -9,29 +11,12 @@ const routes = [
   {
     // chemin relatif racine du projet
     path: "/",
-    name: "Home",
-    component: Home,
-  },
-
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import("../views/About.vue"),
+    name: "FormMain",
+    component: FormMain,
   },
   {
-    path: "/pagea",
-    component: PageA,
-  },
-  {
-    path: "/pageb",
-    component: require("../components/PageB.vue"),
-  },
-  {
-    path: "/pagec",
-    component: require("../components/PageC.vue"),
+    path: "/krypto",
+    component: KryptoMain,
   },
   // redirection si URL ne correspond à aucune citée
   {

@@ -1,16 +1,12 @@
 <template>
   <div>
     <h1>Form App</h1>
-    <a href="/">Krypto-tendance</a>
-    <router-link to="/home">Home</router-link>
-    <router-link to="/pagea">page A</router-link>
-    <router-link to="/pageb">page B</router-link>
-    <router-link to="/pagec">page C</router-link>
+    <router-link to="/">Form Builder</router-link>
+    <router-link to="/krypto">Krypto Tendance</router-link>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Headers",
   props: {},
