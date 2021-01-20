@@ -16,6 +16,7 @@ export default new Vuex.Store({
     urlGet:
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false",
     kryptoData: {},
+    testData: [],
   },
   /** -- Mutations--
    * Enregistrer les mutations sur le store.
@@ -24,28 +25,30 @@ export default new Vuex.Store({
   mutations: {
     // faire une fonction qui rafraîchit l'heure à intervalle régulier
     refreshTime(state) {
-      setInterval(() => {
-        state.currentTime = new Date();
-      }, 1000);
+      state.currentTime = new Date();
     },
-    // TODO - besoin de remove Interval beforeDestroy ?
-    fetchData(state) {
-      axios
-        .get(state.urlGet)
-        .then(res => {
-          state.kryptoData = res.data;
-          console.log(state.kryptoData);
-        })
-        .catch(err => console.log(err));
+    fetchData(state, data) {
+      state.kryptoData = data;
+    },
+    addTestData(state, value) {
+      state.testData.push({ text: value });
     },
   },
   // permet de commit les mutations
   actions: {
     refreshCurrentTime(context) {
-      context.commit("refreshTime");
+      setInterval(() => context.commit("refreshTime"), 1000);
     },
     fetchTheKryptoData(context) {
-      context.commit("fetchData");
+      axios
+        .get(context.state.urlGet)
+        .then(res => {
+          context.commit("fetchData", res.data);
+        })
+        .catch(err => console.log(err));
+    },
+    addTestString(context, data) {
+      context.commit("addTestData", data);
     },
   },
   modules: {},

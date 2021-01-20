@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-primary col-2">
     setup
   </div>
 </template>

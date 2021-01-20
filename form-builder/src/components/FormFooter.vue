@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-warning row ">
     footer
   </div>
 </template>

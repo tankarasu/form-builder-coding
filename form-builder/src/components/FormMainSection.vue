@@ -1,6 +1,8 @@
 <template>
-  <div>
-    mainsection
+  <div class="bg-info col-7">
+    <form>
+      Formulaire
+    </form>
   </div>
 </template>
 

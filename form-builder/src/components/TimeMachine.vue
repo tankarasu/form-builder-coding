@@ -14,7 +14,6 @@
 
 <script>
 import { mapState } from "vuex";
-// TODO date-fns non utilisé
 
 export default {
   name: "TimeMachine",
