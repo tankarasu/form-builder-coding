@@ -17,7 +17,7 @@ export default new Vuex.Store({
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false",
     kryptoData: {},
     testData: [], // TODO element in Json à renommer
-    containerData: { action: "", method: "", class: "", id: "", type: "form" },
+    containerData: { action: "", method: "", classe: "", id: "", type: "form" },
     submitData: {},
   },
   /** -- Mutations--
@@ -29,14 +29,29 @@ export default new Vuex.Store({
     refreshTime(state) {
       state.currentTime = new Date();
     },
+    // récupère les données dans un tableau
     fetchData(state, data) {
       state.kryptoData = data;
     },
+    // TODO fonction à renommer
     addTestData(state, value) {
       state.testData.push({ text: value });
     },
-    catchButtonFormValidate(state){
-      
+    // ajoute l'url à l'objet
+    addUrlAction(state, value) {
+      state.containerData.action = value;
+    },
+    // ajoute la method à l'objet
+    addMethodAction(state, value) {
+      state.containerData.method = value;
+    },
+    // ajout la classe à l'objet
+    addClassAction(state, value) {
+      state.containerData.classe = value;
+    },
+    // ajoute l'id à l'objet
+    addIdAction(state, value) {
+      state.containerData.id = value;
     },
   },
   // permet de commit les mutations
