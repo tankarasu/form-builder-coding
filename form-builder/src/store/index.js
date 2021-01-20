@@ -1,6 +1,7 @@
 // importation nécessaires
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 // utilise Vuex via la fonction middleware 'use'
 Vue.use(Vuex);
@@ -13,7 +14,8 @@ export default new Vuex.Store({
     currentTime: new Date(),
     // cette propriété sert à récupérer la liste des bitcoins à afficher
     urlGet:
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false",
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false",
+    kryptoData: {},
   },
   /** -- Mutations--
    * Enregistrer les mutations sur le store.
@@ -26,18 +28,30 @@ export default new Vuex.Store({
         state.currentTime = new Date();
       }, 1000);
     },
-    // TODO - besoin de remove Interval ?
+    // TODO - besoin de remove Interval beforeDestroy ?
+    fetchData(state) {
+      axios
+        .get(state.urlGet)
+        .then(res => {
+          state.kryptoData = res.data;
+          console.log(state.kryptoData);
+        })
+        .catch(err => console.log(err));
+    },
   },
   // permet de commit les mutations
   actions: {
     refreshCurrentTime(context) {
       context.commit("refreshTime");
     },
+    fetchTheKryptoData(context) {
+      context.commit("fetchData");
+    },
   },
   modules: {},
   getters: {
     // avec ce getters on récupère la date actuelle
     // return implicite si notation ES6 sur 1 ligne
-    thisTime: state => this.state.currentTime,
+    // thisTime: state => this.state.currentTime,
   },
 });
