@@ -16,8 +16,11 @@ export default new Vuex.Store({
     urlGet:
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false",
     kryptoData: {},
-    testData: [], // TODO element in Json à renommer
+    // regroupe les différents éléments du formulaire
+    elementData: [],
+    // regroupe les infos du style de formulaire
     containerData: { action: "", method: "", classe: "", id: "", type: "form" },
+    // regroupe les infos du bouton de validation
     submitData: {},
   },
   /** -- Mutations--
@@ -34,8 +37,8 @@ export default new Vuex.Store({
       state.kryptoData = data;
     },
     // TODO fonction à renommer
-    addTestData(state, value) {
-      state.testData.push({ text: value });
+    addElement(state, value) {
+      state.elementData.push({ type: "button", text: value, class: "btn" });
     },
     // ajoute l'url à l'objet
     addUrlAction(state, value) {
@@ -67,8 +70,8 @@ export default new Vuex.Store({
         })
         .catch(err => console.log(err));
     },
-    addTestString(context, data) {
-      context.commit("addTestData", data);
+    addElementInfo(context, data) {
+      context.commit("addElement", data);
     },
   },
   modules: {},

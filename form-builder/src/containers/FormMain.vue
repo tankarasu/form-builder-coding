@@ -24,11 +24,11 @@ export default {
     FormSelect,
     FormSetup,
   },
-computed: mapState(['testData']),
+  computed: { ...mapState(["containerData", "elementData"]) },
 
-  beforeCreate() {
-    
-  },
+  // beforeUpdate() {
+  //   console.log("updated from main");
+  // },
 };
 </script>
 

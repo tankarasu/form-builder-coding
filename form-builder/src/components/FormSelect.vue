@@ -1,7 +1,8 @@
 <template>
-  <div class=" col-3">
-    <div class="testAdd" @click="addString">
-      <button>Bouton</button>
+  <div class="col-3">
+    <!-- Le clic ajoute l'élément dans le store -->
+    <div class="testAdd">
+      <button>Bouton</button><span class="addBtn" @click="addBtn">+</span>
     </div>
   </div>
 </template>
@@ -11,11 +12,11 @@ import { mapState } from "vuex";
 
 export default {
   name: "FormSelect",
-  computed: mapState(["testData"]),
+  computed: mapState(["elementData"]),
   methods: {
-    addString() {
-      this.$store.dispatch("addTestString", "hello");
-      console.log(this.testData);
+    addBtn() {
+      this.$store.dispatch("addElementInfo", "Bouton");
+      console.log(this.elementData);
     },
   },
 };

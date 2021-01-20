@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-info col-7">
+  <div class="col-7">
     <form @submit.prevent="onSubmit()" class="row">
       <select name="select" id="test" v-model="selected">
         <option value="GET">GET</option>
@@ -10,6 +10,13 @@
       <input v-model="id" placeholder="id" />
       <input v-model="classe" placeholder="class" />
       <input type="submit" value="Valider" />
+    </form>
+    <form action="" method="" class="" id="">
+      <!-- {{ elementData }} -->
+      <div v-for="(item, index) in elementData" :key="index">
+        <button v-if="item.type == 'button'">TEXT BTM</button>
+      </div>
+      <input type="submit" disabled="true" value="Validation" />
     </form>
   </div>
 </template>
@@ -34,7 +41,7 @@ export default {
 
   // objet qu'on utilise comme une variable
   computed: {
-    ...mapState(["containerData"]),
+    ...mapState(["containerData", "elementData"]),
     // pattern
     action: {
       get() {
@@ -62,6 +69,9 @@ export default {
         return this.$store.commit("addIdAction", value);
       },
     },
+  },
+  beforeUpdate() {
+    console.log("updated from section");
   },
 };
 </script>
