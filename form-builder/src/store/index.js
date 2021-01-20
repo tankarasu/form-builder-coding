@@ -35,6 +35,9 @@ export default new Vuex.Store({
     addTestData(state, value) {
       state.testData.push({ text: value });
     },
+    catchButtonFormValidate(state){
+      
+    },
   },
   // permet de commit les mutations
   actions: {

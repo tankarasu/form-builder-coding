@@ -1,6 +1,6 @@
 <template>
   <div class="bg-info col-7">
-    <form>
+    <form @submit.prevent="onSubmit()">
       <span class="custom-control custom-switch">
         <input
           type="checkbox"
@@ -10,10 +10,10 @@
         <label class="custom-control-label" for="customSwitches">POST</label>
       </span>
 
-      <input placeholder="urlAction" />
+      <input v-model= "url" placeholder="urlAction" />
       <input placeholder="id" />
       <input placeholder="class" />
-      <button>Valider</button>
+      <input type="submit" value="Valider" />
     </form>
   </div>
 </template>
@@ -23,7 +23,19 @@ import { mapState } from "vuex";
 
 export default {
   name: "FormMainSection",
-  computed: {},
+  data(){
+    return {url:""};
+  },
+
+  methods: {
+    onSubmit(){
+      console.log(this.data.url);
+    }
+  },
+
+  computed: {
+     ...mapState(["containerData"]),
+  },
 };
 </script>
 
