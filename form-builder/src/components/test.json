@@ -8,6 +8,5 @@
       "type": "form"
     }
   },
-  { "elements": [{ "type": "button", "text": "", "class": "btn" }] },
-  { "submit": {} }
+  { "elements": [{ "type": "button", "text": "", "class": "btn" }] }
 ]

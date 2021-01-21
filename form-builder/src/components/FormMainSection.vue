@@ -17,6 +17,13 @@
         <dynamic-tag :tagType="item.tagType" :content="item.text"></dynamic-tag>
       </div>
     </form>
+  
+    <div>
+      <code
+        >[ {{ containerData }}, {"elements":{{ elementData }}
+        } ]
+      </code>
+    </div>
   </div>
 </template>
 

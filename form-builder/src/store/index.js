@@ -20,8 +20,6 @@ export default new Vuex.Store({
     elementData: [],
     // regroupe les infos du style de formulaire
     containerData: { action: "", method: "", classe: "", id: "", type: "form" },
-    // regroupe les infos du bouton de validation
-    submitData: {},
   },
   /** -- Mutations--
    * Enregistrer les mutations sur le store.
@@ -38,7 +36,11 @@ export default new Vuex.Store({
     },
     // TODO fonction à renommer
     addElement(state, value) {
-      state.elementData.push({ tagType: value.tagType, text: value.content, class: value.class });
+      state.elementData.push({
+        tagType: value.tagType,
+        text: value.content,
+        class: value.class,
+      });
     },
     // ajoute l'url à l'objet
     addUrlAction(state, value) {
