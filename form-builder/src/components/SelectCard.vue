@@ -1,16 +1,16 @@
 <template>
-  <div class="card text-center">
+  <div class="card text-center col-6 p-1">
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item" @click="toggleFromElement">
-          <span class="nav-link" :class="{ active: !isSetting }">Element</span>
+          <span class="nav-link" :class="{ active: !isSetting }"></></span>
         </li>
         <li class="nav-item" @click="toggleFromSetting">
-          <span class="nav-link" :class="{ active: isSetting }">Settings</span>
+          <span class="nav-link" :class="{ active: isSetting }">Set</span>
         </li>
         <li class="nav-item">
           <button class="nav-link" @click="addBtn">
-            Add <span class="badge badge-secondary">+</span>
+            <span class="badge badge-secondary">+</span>
           </button>
         </li>
       </ul>
@@ -66,4 +66,11 @@ export default {
 </script>
 
 <style scoped>
+.nav-item {
+  width: 33%;
+}
+.nav-link {
+  font-size: 14px;
+  font-weight: 600;
+}
 </style>

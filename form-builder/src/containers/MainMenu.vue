@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="mb-4 mt-3 bg-light">
     <Headers></Headers>
     <TimeMachine></TimeMachine>
   </header>
@@ -28,5 +28,6 @@ header {
   flex-direction: row;
   align-items: baseline;
   justify-content: space-around;
+  box-shadow:1px 3px 5px  rgba(17, 16, 16, 0.315);
 }
 </style>

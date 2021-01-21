@@ -6,7 +6,7 @@
           ? "0" + currentTime.getHours()
           : currentTime.getHours()
       }}</span>
-      h
+      :
       <span>{{
         currentTime.getMinutes() < 10
           ? "0" + currentTime.getMinutes()

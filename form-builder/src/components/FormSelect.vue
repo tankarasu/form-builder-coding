@@ -1,5 +1,5 @@
 <template>
-  <div class="col-5">
+  <div class="col-5 row">
     <select-card content="validate" tagType="button"></select-card>
     <select-card content="john" tagType="textarea"></select-card>
     <select-card content="moi" tagType="input"></select-card>

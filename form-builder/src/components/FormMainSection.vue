@@ -1,15 +1,15 @@
 <template>
   <div class="col-7">
-    <form @submit.prevent="onSubmit()" class="row">
-      <select name="select" id="test" v-model="selected">
+    <form @submit.prevent="onSubmit()" class="row m-1">
+      <select name="select" id="test" v-model="selected" class="col-2">
         <option value="GET">GET</option>
         <option value="POST">POST</option>
       </select>
 
-      <input v-model="action" placeholder="urlAction" />
-      <input v-model="id" placeholder="id" />
-      <input v-model="classe" placeholder="class" />
-      <input type="submit" value="Valider" />
+      <input v-model="action" placeholder="urlAction" class="col-3" />
+      <input v-model="id" placeholder="id" class="col-3" />
+      <input v-model="classe" placeholder="class" class="col-3" />
+      <input type="submit" value="Ok" class="col-1" />
     </form>
     <form action="" method="" class="" id="">
       <!-- affichage conditionnel du formulaire -->
@@ -17,7 +17,7 @@
         <dynamic-tag :tagType="item.tagType" :content="item.text"></dynamic-tag>
       </div>
     </form>
-  
+
     <div>
       <code
         >[ {{ containerData }}, {"elements":{{ elementData }}
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 import { mapState } from "vuex";
 import DynamicTag from "./DynamicTag.vue";
 
@@ -92,4 +93,3 @@ export default {
 </script>
 
 <style scoped></style>
-
