@@ -16,17 +16,31 @@
       <th scope="col">Capitalisation du marché</th>
       <th scope="col">Volume Total</th>
 
-      <!-- 
-new Intl.NumberFormat().format(
-       -->
-
       <tr v-for="(krypto, index) in kryptoData" :key="index">
-        <td >{{ krypto.name }}</td>
+        <td>{{ krypto.name }}</td>
         <td>{{ krypto.symbol }}</td>
         <td><img :src="krypto.image" class="icon" /></td>
-        <td>{{ new Intl.NumberFormat().format(krypto.current_price) }}</td>
-        <td>{{ new Intl.NumberFormat().format(krypto.price_change_percentage_24h) }}</td>
-        <td>{{ new Intl.NumberFormat().format(krypto.market_cap) }}</td>
+        <td>
+          {{
+            new Intl.NumberFormat("us-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(krypto.current_price)
+          }}
+        </td>
+        <td>
+          {{
+            new Intl.NumberFormat().format(krypto.price_change_percentage_24h)
+          }}
+        </td>
+        <td>
+          {{
+            new Intl.NumberFormat("us-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(krypto.market_cap)
+          }}
+        </td>
         <td>{{ new Intl.NumberFormat().format(krypto.total_volume) }}</td>
       </tr>
     </table>

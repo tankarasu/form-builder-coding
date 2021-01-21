@@ -19,7 +19,13 @@ export default new Vuex.Store({
     // regroupe les différents éléments du formulaire
     elementData: [],
     // regroupe les infos du style de formulaire
-    containerData: { action: "", method: "", classe: "", id: "", type: "form" },
+    containerData: {
+      action: "",
+      method: "GET",
+      classe: "",
+      id: "",
+      type: "form",
+    },
   },
   /** -- Mutations--
    * Enregistrer les mutations sur le store.
@@ -34,13 +40,16 @@ export default new Vuex.Store({
     fetchData(state, data) {
       state.kryptoData = data;
     },
-    // TODO fonction à renommer
     addElement(state, value) {
       state.elementData.push({
         tagType: value.tagType,
         text: value.content,
         class: value.class,
+        id: value.id,
       });
+    },
+    removeElement(state, value) {
+      state.elementData.splice(value,1)
     },
     // ajoute l'url à l'objet
     addUrlAction(state, value) {

@@ -19,15 +19,19 @@
     <div class="card-body">
       <div v-if="!isSetting">
         <h5 class="card-title">{{ tagType }}</h5>
-
-        <dynamic-tag :tagType="tagType" :content="content"></dynamic-tag>
+        <dynamic-tag :tagType="tagType" :content="contents"></dynamic-tag>
       </div>
       <div v-if="isSetting">
         <div>
-          <input type="text" placeholder="class" />
+          <input type="text" placeholder="class" v-model="formClass" />
+
         </div>
         <div>
-          <input type="text" placeholder="id" />
+          <input type="text" placeholder="id" v-model="formId" />
+
+        </div>
+        <div>
+          <input v-if="needContent=='true'" type="text" placeholder="value" v-model="contents" />
         </div>
       </div>
     </div>
@@ -40,11 +44,11 @@ import { mapState } from "vuex";
 
 export default {
   name: "select-card",
-  props: ["content", "tagType", "type", "classes", "id"],
+  props: ["content", "tagType", "type", "classes", "id","needContent"],
   components: { DynamicTag },
   computed: mapState(["elementData"]),
   data() {
-    return { isSetting: false };
+    return { isSetting: false,contents:"validation",formId:"",formClass:"" };
   },
   methods: {
     toggleFromElement() {
@@ -54,10 +58,11 @@ export default {
       this.isSetting = true;
     },
     addBtn() {
-      this.$store.dispatch("addElementInfo", {
-        content: this.content,
+      this.$store.commit("addElement", {
+        content: this.contents,
         tagType: this.tagType,
-        class: this.classes,
+        class: this.formClass,
+        id:this.formId
       });
       console.log(this.elementData);
     },

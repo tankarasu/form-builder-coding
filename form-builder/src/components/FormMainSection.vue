@@ -1,24 +1,34 @@
 <template>
   <div class="col-7">
-    <form @submit.prevent="onSubmit()" class="row m-1">
-      <select name="select" id="test" v-model="selected" class="col-2">
+    <form class=" m-1" id="Formulaire">
+      <select
+        name="select"
+        id="test"
+        v-model="selected"
+        class=""
+        @change="onChange()"
+      >
         <option value="GET">GET</option>
         <option value="POST">POST</option>
       </select>
 
-      <input v-model="action" placeholder="urlAction" class="col-3" />
-      <input v-model="id" placeholder="id" class="col-3" />
-      <input v-model="classe" placeholder="class" class="col-3" />
-      <input type="submit" value="Ok" class="col-1" />
+      <input v-model="action" placeholder="urlAction" class="" />
+      <input v-model="id" placeholder="id" class="" />
+      <input v-model="classe" placeholder="class" class="" />
     </form>
     <form action="" method="" class="" id="">
       <!-- affichage conditionnel du formulaire -->
       <div v-for="(item, index) in elementData" :key="index">
-        <dynamic-tag :tagType="item.tagType" :content="item.text"></dynamic-tag>
+        <dynamic-tag
+          :tagType="item.tagType"
+          :content="item.text"
+          :index="index"
+          show="1"
+        ></dynamic-tag>
       </div>
     </form>
 
-    <div>
+    <div class="mt-4">
       <code
         >[ {{ containerData }}, {"elements":{{ elementData }}
         } ]
@@ -38,13 +48,12 @@ export default {
   data() {
     return {
       // récupère la méthode du formulaire
-      selected: "",
+      selected: "GET",
     };
   },
   methods: {
-    onSubmit() {
+    onChange() {
       this.$store.commit("addMethodAction", this.selected);
-      console.log(this.containerData);
     },
   },
 
@@ -92,4 +101,10 @@ export default {
 // option : heure locale && heure de midi
 </script>
 
-<style scoped></style>
+<style scoped>
+#Formulaire {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+</style>

@@ -1,8 +1,8 @@
 <template>
   <div class="col-5 row">
-    <select-card content="validate" tagType="button"></select-card>
-    <select-card content="john" tagType="textarea"></select-card>
-    <select-card content="moi" tagType="input"></select-card>
+    <select-card tagType="button" needContent="true"></select-card>
+    <select-card tagType="textarea" needContent="false"></select-card>
+    <select-card tagType="input" needContent="false"></select-card>
   </div>
 </template>
 
