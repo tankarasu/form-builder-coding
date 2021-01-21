@@ -1,16 +1,17 @@
 <template>
-  <div class="col-3">
-    <!-- Le clic ajoute l'élément dans le store -->
-    <div class="testAdd">
-      <button>Bouton</button><span class="addBtn" @click="addBtn">+</span>
-    </div>
+  <div class="col-5">
+    <select-card content="validate" tagType="button"></select-card>
+    <select-card content="john" tagType="textarea"></select-card>
+    <select-card content="moi" tagType="input"></select-card>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import SelectCard from "./SelectCard.vue";
 
 export default {
+  components: { SelectCard },
   name: "FormSelect",
   computed: mapState(["elementData"]),
   methods: {

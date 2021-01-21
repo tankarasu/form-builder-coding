@@ -38,7 +38,7 @@ export default new Vuex.Store({
     },
     // TODO fonction à renommer
     addElement(state, value) {
-      state.elementData.push({ type: "button", text: value, class: "btn" });
+      state.elementData.push({ tagType: value.tagType, text: value.content, class: value.class });
     },
     // ajoute l'url à l'objet
     addUrlAction(state, value) {

@@ -12,19 +12,20 @@
       <input type="submit" value="Valider" />
     </form>
     <form action="" method="" class="" id="">
-      <!-- {{ elementData }} -->
+      <!-- affichage conditionnel du formulaire -->
       <div v-for="(item, index) in elementData" :key="index">
-        <button v-if="item.type == 'button'">TEXT BTM</button>
+        <dynamic-tag :tagType="item.tagType" :content="item.text"></dynamic-tag>
       </div>
-      <input type="submit" disabled="true" value="Validation" />
     </form>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import DynamicTag from "./DynamicTag.vue";
 
 export default {
+  components: { DynamicTag },
   name: "FormMainSection",
   data() {
     return {
@@ -74,6 +75,14 @@ export default {
     console.log("updated from section");
   },
 };
+
+// CSS
+// récupérer les données dans un JSON
+// récuperer les données en copie
+// afficher les données en JSON
+// bootstrap avancé
+// option : heure locale && heure de midi
 </script>
 
 <style scoped></style>
+
