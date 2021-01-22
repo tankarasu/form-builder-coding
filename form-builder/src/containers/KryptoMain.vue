@@ -1,6 +1,12 @@
 <template>
   <!-- Gestion des erreurs lors du chargement -->
   <div v-if="kryptoData[0]">
+    <input
+      type="search"
+      v-model="search"
+      placeholder="Rechercher"
+      class="form-control rounded"
+    />
     <!-- on affiche le tableau -->
     <table class="table">
       <!-- titre du tableau -->
@@ -16,7 +22,7 @@
       <th scope="col">Capitalisation du marché</th>
       <th scope="col">Volume Total</th>
 
-      <tr v-for="(krypto, index) in kryptoData" :key="index">
+      <tr v-for="(krypto, index) in filtreMonnaie" :key="index">
         <td>{{ krypto.name }}</td>
         <td>{{ krypto.symbol }}</td>
         <td><img :src="krypto.image" class="icon" /></td>
@@ -53,8 +59,16 @@
 import { mapState } from "vuex";
 
 export default {
+  data() {
+    return {search:''}
+  },
   computed: {
     ...mapState(["kryptoData"]),
+    filtreMonnaie: function(){
+      return this.kryptoData.filter((krypto) => {
+        return krypto.name.match(this.search);
+      });
+    }
   },
   //   appel API avant la création
   beforeCreate() {
@@ -66,5 +80,12 @@ export default {
 <style scoped>
 .icon {
   width: 32px;
+}
+
+.form-control{
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: 0;
+  width: 50%;
 }
 </style>
